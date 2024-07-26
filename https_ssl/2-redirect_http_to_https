@@ -31,7 +31,7 @@ frontend http_front
     default_backend http_back
 
 frontend https_front
-    bind *:443 ssl crt /etc/letsencrypt/live/www.thedenis.tech.tech/combined.pem
+    bind *:443 ssl crt /etc/letsencrypt/live/www.thedenis.tech.tech/fullchain.pem
     http-request add-header X-Forwarded-Proto https
     default_backend http_back
 
@@ -39,10 +39,3 @@ backend http_back
     balance roundrobin
     server 6229-web-01 52.91.192.35:80
     server 6229-web-02 54.82.120.200:80
-
-listen stats
-    bind *:8080
-    stats enable
-    stats uri /
-    stats hide-version
-    stats auth admin:admin
