@@ -37,8 +37,8 @@ frontend https_front
 
 backend http_back
     balance roundrobin
-    server 6229-web-01 52.91.192.35:80 check
-    server 6229-web-02 54.82.120.200:80 check
+    server 6229-web-01 52.91.192.35:80
+    server 6229-web-02 54.82.120.200:80
 
 listen stats
     bind *:8080
